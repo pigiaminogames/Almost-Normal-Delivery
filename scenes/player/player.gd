@@ -20,16 +20,20 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_input(delta) -> void:
-	var turn := Input.get_axis("key_left", "key_right")
-	if Input.is_action_pressed("key_up") or Input.is_action_pressed("key_down"):
-		rotation += turn * turn_speed * delta
+	var turn
+	
 		#sprite.rotate_sprite()
 	
 	
 	if Input.is_action_pressed("key_up"):
 		speed += acceleration * delta
+		turn = Input.get_axis("key_left", "key_right")
 	elif Input.is_action_pressed("key_down"):
 		speed -= acceleration * delta
+		turn = Input.get_axis("key_right", "key_left")
+	
+	if Input.is_action_pressed("key_up") or Input.is_action_pressed("key_down"):
+		rotation += turn * turn_speed * delta
 	
 	speed = clamp(speed, -max_speed * 0.5, max_speed)
 	
