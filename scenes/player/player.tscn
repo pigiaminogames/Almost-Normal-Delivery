@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ndocdwc5nxep"]
+
+[ext_resource type="PackedScene" uid="uid://dpd03su1uefx" path="res://scenes/player/stackedsprite_2d.tscn" id="1_8afob"]
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="stackedsprite2D" parent="." instance=ExtResource("1_8afob")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
