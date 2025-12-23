@@ -56,9 +56,5 @@ func _on_Resume_pressed():
 	resume()
 
 
-func _on_PauseButton_pressed():
-	pause_game()
-
-
 func _on_main_menu_pressed():
 	GGT.change_scene("res://scenes/menu/menu.tscn", {"show_progress_bar": false})
