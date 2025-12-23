@@ -8,13 +8,12 @@ func _ready() -> void:
 	render_sprites()
 
 
-func set_rotate_sprites(_rotate_sprites):
+func set_rotate_sprites(_rotate_sprites) -> void:
 	rotate_sprites = _rotate_sprites
 
-
-func _process(delta: float) -> void:
+func rotate_sprite(_rotation) -> void:
 	for sprite in get_children():
-		sprite.rotation += delta
+		sprite.rotation = _rotation
 
 
 func set_show_sprites(_show_spites) -> void:

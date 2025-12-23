@@ -9,3 +9,5 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_mfkau")
 hframes = 9
 script = ExtResource("2_1sv2e")
+show_sprites = true
+rotate_sprites = true
