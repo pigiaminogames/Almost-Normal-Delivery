@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bpbocujaiw1nx" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bphc5au8fr186" path="res://scenes/player/player_stackedsprite.gd" id="2_gmlin"]
-[ext_resource type="Texture2D" uid="uid://ws6taqkylj5y" path="res://assets/amazon_car_shadow_2.png" id="3_lvxji"]
+[ext_resource type="Texture2D" uid="uid://biqgu18sxlupj" path="res://assets/sprites/amazon_car2.png" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(32, 56)
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,6 +18,6 @@ shape = SubResource("RectangleShape2D_gmlin")
 texture_filter = 1
 scale = Vector2(4, 4)
 script = ExtResource("2_gmlin")
-texture = ExtResource("3_lvxji")
-sprite_hframes = 9
+texture = ExtResource("3_gmlin")
+sprite_hframes = 8
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
