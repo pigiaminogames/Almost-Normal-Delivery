@@ -1,6 +1,5 @@
 extends CharacterBody2D
-
-@onready var sprite: Sprite2D = $stackedsprite2D
+class_name player
 
 
 @export var acceleration := 250.0
@@ -10,6 +9,14 @@ extends CharacterBody2D
 
 var speed := 0.0
 
+@onready var stack_root: player_stackedsprite = $player_stackedsprite
+var sprites = []
+
+
+func _ready() -> void:
+	sprites = stack_root.get_children()
+	print("sprites trovate:", sprites.size())
+
 
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
@@ -17,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	move_car(delta)
 	
 	move_and_slide()
+	
+	update_stack()
 
 
 func handle_input(delta) -> void:
@@ -36,7 +45,7 @@ func handle_input(delta) -> void:
 		rotation += turn * turn_speed * delta
 	
 	speed = clamp(speed, -max_speed * 0.5, max_speed)
-	
+
 
 
 func apply_friction(delta) -> void:
@@ -47,4 +56,16 @@ func apply_friction(delta) -> void:
 
 func move_car(_delta) -> void:
 	velocity = -transform.y * speed
-	print(velocity)
+	#print(velocity)
+
+
+func update_stack() -> void:
+	var angle := rotation
+	
+	for i in range(sprites.size()):
+		var sprite = sprites[i]
+		var height := i * 4
+		
+		sprite.position.x = sin(angle) * height
+		sprite.position.y = -height
+		sprite.z_index = i

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdfgtnpxcy2qp"]
+
+[ext_resource type="Script" uid="uid://ch2y1mqww1d7b" path="res://scenes/stacked_sprite/stackedsprite.gd" id="1_opoig"]
+
+[node name="stackedsprite" type="Node2D"]
+script = ExtResource("1_opoig")
