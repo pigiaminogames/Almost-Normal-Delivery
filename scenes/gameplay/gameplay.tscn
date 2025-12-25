@@ -27,11 +27,12 @@ tile_set = ExtResource("2_m3hu3")
 [node name="buildings" type="Node2D" parent="tilemap"]
 
 [node name="stackedsprite" type="Node2D" parent="tilemap/buildings"]
-position = Vector2(-64, -32)
+position = Vector2(372, 377)
 scale = Vector2(6, 6)
 script = ExtResource("3_q64rj")
 texture = ExtResource("4_0w2j2")
 sprite_hframes = 15
+sprite_rotation = 1.5699999999999998
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="player" parent="." instance=ExtResource("2_2p25t")]

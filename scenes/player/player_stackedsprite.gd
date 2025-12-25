@@ -11,3 +11,4 @@ func _process(_delta: float) -> void:
 	
 	for sprite in layers:
 		sprite.global_rotation = car.global_rotation
+		#print(sprite.global_rotation)

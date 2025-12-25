@@ -22,6 +22,18 @@ var layers: Array[Sprite2D] = []
 
 func _ready() -> void:
 	stack_sprites()
+	for sprite in layers:
+		sprite.global_rotation = sprite_rotation
+
+
+func _process(_delta: float) -> void:
+	for sprite in layers:
+		sprite.global_rotation = sprite_rotation
+	
+	#if Input.is_action_pressed("ggt_debug_step_frame"):
+		#sprite_rotation += 0.1
+	#
+	#print(sprite_rotation)
 
 
 func stack_sprites() -> void:
