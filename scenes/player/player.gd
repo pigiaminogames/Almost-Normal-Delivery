@@ -56,6 +56,8 @@ func handle_input(delta) -> void:
 		rotation += turn * turn_speed * delta
 	
 	speed = clamp(speed, -max_speed * 0.5, max_speed)
+	
+	#TODO RISOLVERE PROBLEMA MACCHINA CHE GIRA A VELOCITÀ TROPPO PICCOLE O AL CONTRARIO
 
 
 

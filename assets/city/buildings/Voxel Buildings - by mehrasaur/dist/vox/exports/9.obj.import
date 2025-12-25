@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b6vi75e2irwto"
+path="res://.godot/imported/9.obj-1f9936435d9bb1d294cfd5f83537d671.mesh"
+
+[deps]
+
+files=["res://.godot/imported/9.obj-1f9936435d9bb1d294cfd5f83537d671.mesh"]
+
+source_file="res://assets/city/buildings/Voxel Buildings - by mehrasaur/dist/vox/exports/9.obj"
+dest_files=["res://.godot/imported/9.obj-1f9936435d9bb1d294cfd5f83537d671.mesh", "res://.godot/imported/9.obj-1f9936435d9bb1d294cfd5f83537d671.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

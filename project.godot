@@ -38,6 +38,10 @@ project/assembly_name="godot-game-template"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ggt-core/plugin.cfg", "res://addons/ggt-debug-shortcuts/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://resources/theme/theme-main.tres"

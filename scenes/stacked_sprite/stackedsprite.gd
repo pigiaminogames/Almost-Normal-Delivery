@@ -19,6 +19,7 @@ var spin_rotation_value := 0.0
 
 var layers: Array[Sprite2D] = []
 
+#TODO RISOLVERE Z-INDEX TRA STACK-SPRITES
 
 func _ready() -> void:
 	stack_sprites()
