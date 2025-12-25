@@ -1,0 +1,8 @@
+[23:05:39 2025-09-30] FETCHING Version 2.42.0
+[23:05:39 2025-09-30] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.42.0/spicetify-2.42.0-linux-amd64.tar.gz
+[23:06:44 2025-09-30] EXTRACTING /home/pigia/.spicetify/spicetify.tar.gz
+[23:06:44 2025-09-30] SETTING EXECUTABLE PERMISSIONS TO /home/pigia/.spicetify/spicetify
+[23:06:44 2025-09-30] REMOVING /home/pigia/.spicetify/spicetify.tar.gz
+[23:06:44 2025-09-30] spicetify path already set in /home/pigia/.bashrc, continuing...
+[23:06:44 2025-09-30] spicetify v2.42.0 was installed successfully to /home/pigia/.spicetify
+[23:06:44 2025-09-30] Run 'spicetify --help' to get started
