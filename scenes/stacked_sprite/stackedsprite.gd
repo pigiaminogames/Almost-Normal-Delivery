@@ -19,7 +19,7 @@ var spin_rotation_value := 0.0
 
 var layers: Array[Sprite2D] = []
 
-#TODO RISOLVERE Z-INDEX TRA STACK-SPRITES
+#TODO RISOLVERE PROBLEMA Z-INDEX TRA EDIFICI (gemini)
 
 func _ready() -> void:
 	stack_sprites()
@@ -30,6 +30,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	for sprite in layers:
 		sprite.global_rotation = sprite_rotation
+	
+	var screen_center = get_viewport_rect().size / 2.0
+	var pos_on_screen = get_global_transform_with_canvas().origin
+	var offset_dir = (pos_on_screen - screen_center).normalized()
+	var distance = pos_on_screen.distance_to(screen_center) * 0.02 # Regola l'intensità
+	
+	for i in range(layers.size()):
+		# Ogni fetta si sposta leggermente verso l'esterno dello schermo
+		layers[i].position = Vector2(0, -(vertical_spacing / 3.0) * i) + (offset_dir * distance * i * 0.1)
 	
 	#if Input.is_action_pressed("ggt_debug_step_frame"):
 		#sprite_rotation += 0.1

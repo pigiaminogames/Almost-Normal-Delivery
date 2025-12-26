@@ -17,8 +17,7 @@ var sprites = []
 
 
 func _ready() -> void:
-	sprites = stack_root.get_children()
-	print("sprites trovate:", sprites.size())
+	global_rotation = 1.57
 
 
 func _physics_process(delta: float) -> void:
