@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://obh6lymymjro"]
+[gd_scene load_steps=23 format=4 uid="uid://obh6lymymjro"]
 
 [ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://ndocdwc5nxep" path="res://scenes/player/player.tscn" id="2_2p25t"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dsrm65vmihajb" path="res://assets/city/buildings/building_5.png" id="8_lb4ud"]
 [ext_resource type="Texture2D" uid="uid://p672wylbkeqi" path="res://assets/city/buildings/building_7.png" id="9_bhb63"]
 [ext_resource type="Texture2D" uid="uid://d3h8mkxsvmlem" path="res://assets/city/buildings/building_8.png" id="10_i6m2i"]
+[ext_resource type="PackedScene" uid="uid://bhc3l08dj7rvq" path="res://scenes/delivery_area/delivery_area.tscn" id="13_td3fc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w2j2"]
 size = Vector2(28, 16)
@@ -1350,6 +1351,11 @@ position = Vector2(-0.40000153, 0)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
+[node name="delivery_area" parent="." instance=ExtResource("13_td3fc")]
+unique_name_in_owner = true
+position = Vector2(-1368, 295)
+rotation = 1.5707964
+
 [node name="player" parent="." instance=ExtResource("2_2p25t")]
 y_sort_enabled = true
 position = Vector2(344, 472)
@@ -1365,3 +1371,5 @@ limit_bottom = 2032
 limit_smoothed = true
 
 [node name="PauseLayer" parent="." instance=ExtResource("2")]
+
+[connection signal="body_entered" from="delivery_area" to="." method="_on_delivery_area_body_entered"]

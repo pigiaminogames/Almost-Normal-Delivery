@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name player
+class_name player_gd
 
 
 @export_category("Car_Velocity")
