@@ -2,7 +2,7 @@
 extends stackedsprite
 class_name player_stackedsprite
 
-@onready var car: player = $".."
+@onready var car: player_gd = $".."
 
 
 func _process(_delta: float) -> void:
