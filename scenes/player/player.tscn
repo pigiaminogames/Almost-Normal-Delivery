@@ -10,6 +10,9 @@ size = Vector2(32, 56)
 [node name="player" type="CharacterBody2D"]
 collision_mask = 7
 script = ExtResource("1_dovo2")
+acceleration = 100.0
+max_speed = 450.0
+friction = 350.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gmlin")

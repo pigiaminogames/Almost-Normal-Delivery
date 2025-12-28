@@ -1352,15 +1352,13 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="delivery_area" parent="." instance=ExtResource("13_td3fc")]
-unique_name_in_owner = true
 position = Vector2(-1368, 295)
 rotation = 1.5707964
 
 [node name="player" parent="." instance=ExtResource("2_2p25t")]
 y_sort_enabled = true
 position = Vector2(344, 472)
-max_speed = 600.0
-friction = 350.0
+acceleration = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.3, 1.3)
