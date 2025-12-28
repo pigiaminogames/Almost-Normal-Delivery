@@ -3,6 +3,7 @@ extends Node2D
 @onready var delivery_area: Area2D = $delivery_area
 @onready var player: player_gd = $player
 var t = 0
+var numr: int = -1
 
 func _ready() -> void:
 	change_delivery_area_pos()
@@ -21,7 +22,12 @@ func _process(_delta):
 
 
 func change_delivery_area_pos() -> void:
-	var numr = (randi() % 10)
+	var numr_b = (randi() % 10)
+	
+	while(numr_b == numr):
+		numr_b = (randi() % 10)
+	
+	numr = numr_b
 	
 	match numr:
 		0:
