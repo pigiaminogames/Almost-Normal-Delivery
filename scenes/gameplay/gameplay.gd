@@ -68,12 +68,12 @@ func change_delivery_area_pos() -> void:
 
 
 func change_malus() -> void:
-	#var random_malus := (randi() % 4 + 1)
-	#
-	#while(random_malus == globalscript.actual_malus):
-		#random_malus = (randi() % 4 + 1)
+	var random_malus := (randi() % 4 + 1)
 	
-	var random_malus := 3
+	while(random_malus == globalscript.actual_malus):
+		random_malus = (randi() % 4 + 1)
+	
+	#var random_malus := 3
 	
 	globalscript.actual_malus = random_malus
 	
