@@ -8,6 +8,9 @@ class_name player_gd
 @export var friction := 600.0
 @export var turn_speed := 1.5
 
+@export_category("Slippery_Settings")
+@export var base_traction := 10.0
+
 var speed := 0.0
 
 @onready var stack_root: player_stackedsprite = $player_stackedsprite
@@ -15,12 +18,35 @@ var sprites = []
 
 @onready var orientated := 0
 
+@onready var wait_inverted_arrow_timer := 0.0
+@onready var inverted_arrow_timer := 0.0
+
 
 func _ready() -> void:
 	global_rotation = 1.57
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	if not is_instance_valid(globalscript): return
+	
+	if globalscript.actual_malus == 3:
+		if wait_inverted_arrow_timer == 0.0 and inverted_arrow_timer == 0.0:
+			start_wait_inverted_timer()
+		elif wait_inverted_arrow_timer > 0.0:
+			wait_inverted_arrow_timer -= delta
+			
+			if wait_inverted_arrow_timer <= 0.0:
+				start_inverted_timer()
+		elif inverted_arrow_timer > 0.0:
+			inverted_arrow_timer -= delta
+			
+			if inverted_arrow_timer <= 0.0:
+				start_wait_inverted_timer()
+	else:
+		wait_inverted_arrow_timer = 0.0
+		inverted_arrow_timer = 0.0
+	
 	handle_input(delta)
 	apply_friction(delta)
 	move_car(delta)
@@ -63,21 +89,35 @@ func handle_input(delta) -> void:
 		direction_factor = -1
 	
 	if direction_factor != 0:
-		turn = Input.get_axis("key_left", "key_right")
+		if globalscript.actual_malus == 3:
+			if inverted_arrow_timer > 0.0:
+				turn = Input.get_axis("key_right", "key_left")
+			elif wait_inverted_arrow_timer > 0.0:
+				turn = Input.get_axis("key_left", "key_right")
+		else:
+			turn = Input.get_axis("key_left", "key_right")
 		
 		rotation += turn * turn_speed * delta * direction_factor
 
 
 func apply_friction(delta) -> void:
 	if not Input.is_action_pressed("key_up") and not Input.is_action_pressed("key_down"):
-		speed = move_toward(speed, 0, friction * delta)
-		
-		
+		speed = move_toward(speed, 0, friction * delta)	
+
+
+func move_car(delta) -> void:
+	var desired_velocity := -transform.y * speed
 	
-
-
-func move_car(_delta) -> void:
-	velocity = -transform.y * speed
+	if globalscript.actual_malus == 1:
+		desired_velocity *= globalscript.weight_malus
+	
+	if globalscript.actual_malus == 2:
+		var current_traction = lerp(base_traction, 0.5, globalscript.actual_slippery_factor)
+		#print(current_traction)
+		
+		velocity = velocity.lerp(desired_velocity, current_traction * delta)
+	else:
+		velocity = velocity.lerp(desired_velocity, base_traction * delta)
 	#print(velocity)
 
 
@@ -91,3 +131,13 @@ func update_stack() -> void:
 		sprite.position.x = sin(angle) * height
 		sprite.position.y = -height
 		sprite.z_index = i
+
+
+func start_inverted_timer() -> void:
+	wait_inverted_arrow_timer = 0.0
+	inverted_arrow_timer = globalscript.inverted_arrow_timer
+
+
+func start_wait_inverted_timer() -> void:
+	inverted_arrow_timer = 0.0
+	wait_inverted_arrow_timer = randf_range(globalscript.min_sec_inverted_arrow_timer, globalscript.max_sec_inverted_arrow_timer)
