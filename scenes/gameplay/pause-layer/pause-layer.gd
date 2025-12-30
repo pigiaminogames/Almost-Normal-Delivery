@@ -14,7 +14,8 @@ extends CanvasLayer
 @onready var points_label: Label = $MarginContainer/Control/PanelContainer/MarginContainer2/points_label
 @onready var timer_label: Label = $MarginContainer/Control/PanelContainer3/MarginContainer2/timer_label
 
-@onready var delivery_package_timer: Timer = $delivery_package_timer
+#@onready var delivery_package_timer: Timer = $delivery_package_timer
+@onready var actual_malus_label: Label = $PanelContainer2/MarginContainer/VBoxContainer/actual_malus_label
 
 
 @onready var nodes_grp1 = [arrow_stackedsprite, points_panel_container, malus_panel_container, timer_panel_conteiner] # should be visible during gamemplay and hidden during pause
@@ -72,4 +73,14 @@ func _on_main_menu_pressed():
 
 func _process(_delta: float) -> void:
 	points_label.text = str(globalscript.point)
-	timer_label.text = "Time: " + str(delivery_package_timer.time_left)
+	timer_label.text = "Time: " + str(globalscript.delivery_timer)
+	
+	match globalscript.actual_malus:
+		1:
+			actual_malus_label.text = "WARNING: the package is havier"
+		2:
+			actual_malus_label.text = "WARNING: the road is slippey"
+		3:
+			actual_malus_label.text = "WARNING: the steering likes to change"
+		4:
+			actual_malus_label.text = "WARNING: the navigator is not functioning properly"

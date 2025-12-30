@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://barl4q1kugrmm"]
+[gd_scene load_steps=7 format=3 uid="uid://barl4q1kugrmm"]
 
 [ext_resource type="Script" uid="uid://do7kkb4ijqk5p" path="res://scenes/gameplay/pause-layer/pause-layer.gd" id="2"]
 [ext_resource type="Script" uid="uid://cmp47ven52wms" path="res://scenes/gameplay/pause-layer/arrow_stackedsprite.gd" id="2_nevgd"]
 [ext_resource type="Texture2D" uid="uid://d37xcbpb2ux7c" path="res://assets/sprites/arrow.png" id="3_nevgd"]
 [ext_resource type="FontFile" uid="uid://cv4df1wn1g7aa" path="res://assets/fonts/equipment-pro-v1.1/EquipmentPro.otf" id="4_5vvpd"]
+[ext_resource type="Texture2D" uid="uid://cob1u1qw26j41" path="res://assets/ui/Custom Border and Panels Menu All Part/Border All 6.png" id="5_p6wo1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyxla"]
+content_margin_left = 10.0
+texture = ExtResource("5_p6wo1")
+expand_margin_right = 205.0
+region_rect = Rect2(0, 0, 64, 64)
 
 [node name="PauseLayer" type="CanvasLayer"]
 process_mode = 3
@@ -130,12 +137,10 @@ theme_override_fonts/font = ExtResource("4_5vvpd")
 theme_override_font_sizes/font_size = 50
 text = "Time: "
 
-[node name="delivery_package_timer" type="Timer" parent="."]
-wait_time = 30.0
-
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 offset_right = 161.0
 offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kyxla")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
 layout_mode = 2

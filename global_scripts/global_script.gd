@@ -1,5 +1,7 @@
 extends Node
 
+@onready var delivery_timer := 30.0
+
 @onready var point: int = 0: set = update_malus
 @onready var actual_malus: int = -1
 @onready var counter: int = 0
