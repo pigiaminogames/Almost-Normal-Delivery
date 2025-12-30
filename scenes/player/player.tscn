@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ndocdwc5nxep"]
+[gd_scene load_steps=6 format=3 uid="uid://ndocdwc5nxep"]
 
 [ext_resource type="Script" uid="uid://bpbocujaiw1nx" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bphc5au8fr186" path="res://scenes/player/player_stackedsprite.gd" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://biqgu18sxlupj" path="res://assets/sprites/amazon_car2.png" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://dtsgeob3xdjtb" path="res://assets/ui/arrows.png" id="4_lvxji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(32, 56)
@@ -24,3 +25,8 @@ script = ExtResource("2_gmlin")
 texture = ExtResource("3_gmlin")
 sprite_hframes = 8
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
+
+[node name="arrow" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+rotation = 1.5707964
+texture = ExtResource("4_lvxji")

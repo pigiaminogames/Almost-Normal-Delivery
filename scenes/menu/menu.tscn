@@ -101,6 +101,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
 text = "made by: Pigia"
+horizontal_alignment = 2
 
 [node name="Developer1" type="Label" parent="MarginContainer/Control/Credits"]
 layout_mode = 2
@@ -108,7 +109,8 @@ theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
-text = "tileet by nyknck"
+text = "font by somepx"
+horizontal_alignment = 2
 
 [node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
 layout_mode = 2
@@ -116,15 +118,18 @@ theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
-text = "font by somepx"
+text = "tileset by nyknck, ToffeeCraft and Dragon1727"
+horizontal_alignment = 2
 
 [node name="Developer3" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
 text = "ui tileset by BDragon1727"
+horizontal_alignment = 2
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

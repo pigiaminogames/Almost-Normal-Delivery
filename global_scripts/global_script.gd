@@ -68,3 +68,10 @@ func update_inverted_arrows() -> void:
 	max_sec_inverted_arrow_timer -= 1.0
 	if max_sec_inverted_arrow_timer == min_sec_inverted_arrow_timer:
 		max_sec_inverted_arrow_timer = min_sec_inverted_arrow_timer + 0.5
+
+
+func _process(delta: float) -> void:
+	if delivery_timer > 0.0:
+		delivery_timer -= delta
+	else:
+		delivery_timer = 30.0

@@ -1,16 +1,55 @@
-[gd_scene load_steps=7 format=3 uid="uid://barl4q1kugrmm"]
+[gd_scene load_steps=21 format=3 uid="uid://barl4q1kugrmm"]
 
 [ext_resource type="Script" uid="uid://do7kkb4ijqk5p" path="res://scenes/gameplay/pause-layer/pause-layer.gd" id="2"]
 [ext_resource type="Script" uid="uid://cmp47ven52wms" path="res://scenes/gameplay/pause-layer/arrow_stackedsprite.gd" id="2_nevgd"]
 [ext_resource type="Texture2D" uid="uid://d37xcbpb2ux7c" path="res://assets/sprites/arrow.png" id="3_nevgd"]
 [ext_resource type="FontFile" uid="uid://cv4df1wn1g7aa" path="res://assets/fonts/equipment-pro-v1.1/EquipmentPro.otf" id="4_5vvpd"]
 [ext_resource type="Texture2D" uid="uid://cob1u1qw26j41" path="res://assets/ui/Custom Border and Panels Menu All Part/Border All 6.png" id="5_p6wo1"]
+[ext_resource type="Texture2D" uid="uid://cethm612ouuf7" path="res://assets/ui/Sprite-0001.png" id="6_bjbjd"]
+[ext_resource type="Texture2D" uid="uid://bleqiy1y4avkq" path="res://assets/ui/weight.png" id="7_48xoo"]
+[ext_resource type="Texture2D" uid="uid://vlub0m377jek" path="res://assets/ui/Sprite-0002.png" id="8_j0qoc"]
+[ext_resource type="Texture2D" uid="uid://hfwso16mu4b1" path="res://assets/ui/snow.png" id="9_kiuki"]
+[ext_resource type="Texture2D" uid="uid://crciyn76vasoc" path="res://assets/ui/Sprite-0003.png" id="10_akqoh"]
+[ext_resource type="Texture2D" uid="uid://dtsgeob3xdjtb" path="res://assets/ui/arrows.png" id="11_1ec5a"]
+[ext_resource type="Texture2D" uid="uid://f14lfvtpudad" path="res://assets/ui/Sprite-0004.png" id="12_h52jg"]
+[ext_resource type="Texture2D" uid="uid://cmtiaxk4avarl" path="res://assets/ui/navigator.png" id="13_e3ttb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjbjd"]
+texture = ExtResource("5_p6wo1")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+axis_stretch_horizontal = 2
+region_rect = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6wo1"]
+texture = ExtResource("5_p6wo1")
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyxla"]
 content_margin_left = 10.0
 texture = ExtResource("5_p6wo1")
-expand_margin_right = 205.0
 region_rect = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0qoc"]
+atlas = ExtResource("6_bjbjd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiuki"]
+atlas = ExtResource("8_j0qoc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akqoh"]
+atlas = ExtResource("10_akqoh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ec5a"]
+atlas = ExtResource("12_h52jg")
+region = Rect2(0, 0, 16, 16)
 
 [node name="PauseLayer" type="CanvasLayer"]
 process_mode = 3
@@ -31,6 +70,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
 
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
@@ -83,7 +126,6 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="arrow_stackedsprite" type="Node2D" parent="MarginContainer/Control/Container"]
-unique_name_in_owner = true
 position = Vector2(0, 36.375)
 scale = Vector2(4, 4)
 script = ExtResource("2_nevgd")
@@ -93,76 +135,120 @@ metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -21.0
-offset_top = -71.0
+anchors_preset = -1
+anchor_left = 0.9480001
+anchor_top = 0.892
+anchor_right = 1.011
+anchor_bottom = 0.9850001
+offset_left = 11.7438965
+offset_top = -7.4960327
+offset_right = -11.791992
+offset_bottom = 8.819946
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bjbjd")
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Control/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="points_label" type="Label" parent="MarginContainer/Control/PanelContainer/MarginContainer2"]
+[node name="points_label" type="Label" parent="MarginContainer/Control/PanelContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5vvpd")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
+text = "10"
+horizontal_alignment = 1
 
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -161.0
-offset_bottom = 71.0
+anchors_preset = -1
+anchor_left = 0.93000007
+anchor_top = -0.020000001
+anchor_right = 1.0070001
+anchor_bottom = 0.07300001
+offset_left = 8.039917
+offset_top = 11.760001
+offset_right = -7.5041504
+offset_bottom = -11.924004
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_p6wo1")
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Control/PanelContainer3"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="timer_label" type="Label" parent="MarginContainer/Control/PanelContainer3/MarginContainer2"]
+[node name="timer_label" type="Label" parent="MarginContainer/Control/PanelContainer3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5vvpd")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Time: "
 
-[node name="PanelContainer2" type="PanelContainer" parent="."]
-offset_right = 161.0
-offset_bottom = 170.0
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -131.0
+offset_right = 88.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kyxla")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/PanelContainer2"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="malus_label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5vvpd")
-theme_override_font_sizes/font_size = 50
 text = "Malus"
 
-[node name="actual_malus_label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_5vvpd")
-theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j0qoc")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_48xoo")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kiuki")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("9_kiuki")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_akqoh")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("11_1ec5a")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1ec5a")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("13_e3ttb")
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxOptions/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxOptions/MainMenu" to="." method="_on_main_menu_pressed"]
