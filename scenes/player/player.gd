@@ -16,6 +16,8 @@ var speed := 0.0
 @onready var stack_root: player_stackedsprite = $player_stackedsprite
 var sprites = []
 
+@onready var arrow: Sprite2D = $arrow
+
 @onready var orientated := 0
 
 @onready var wait_inverted_arrow_timer := 0.0
@@ -24,6 +26,7 @@ var sprites = []
 
 func _ready() -> void:
 	global_rotation = 1.57
+	arrow.hide()
 
 
 func _physics_process(delta: float) -> void:
@@ -92,10 +95,13 @@ func handle_input(delta) -> void:
 		if globalscript.actual_malus == 3:
 			if inverted_arrow_timer > 0.0:
 				turn = Input.get_axis("key_right", "key_left")
+				arrow.show()
 			elif wait_inverted_arrow_timer > 0.0:
 				turn = Input.get_axis("key_left", "key_right")
+				arrow.hide()
 		else:
 			turn = Input.get_axis("key_left", "key_right")
+			arrow.hide()
 		
 		rotation += turn * turn_speed * delta * direction_factor
 

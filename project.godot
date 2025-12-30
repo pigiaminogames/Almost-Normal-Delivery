@@ -35,6 +35,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="godot-game-template"
 
+[editor]
+
+movie_writer/movie_file="/home/pigia/film/ciao.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ggt-core/plugin.cfg", "res://addons/ggt-debug-shortcuts/plugin.cfg")
@@ -45,6 +49,7 @@ import/blender/enabled=false
 
 [gui]
 
+theme/default_font_multichannel_signed_distance_field=true
 theme/custom="res://resources/theme/theme-main.tres"
 
 [input]

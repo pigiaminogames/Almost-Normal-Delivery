@@ -73,7 +73,7 @@ func change_malus() -> void:
 	while(random_malus == globalscript.actual_malus):
 		random_malus = (randi() % 4 + 1)
 	
-	#var random_malus := 3
+	#var random_malus := 1
 	
 	globalscript.actual_malus = random_malus
 	
