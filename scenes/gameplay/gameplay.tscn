@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://obh6lymymjro"]
+[gd_scene load_steps=30 format=4 uid="uid://obh6lymymjro"]
 
 [ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://ndocdwc5nxep" path="res://scenes/player/player.tscn" id="2_2p25t"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://d3h8mkxsvmlem" path="res://assets/city/buildings/building_8.png" id="10_i6m2i"]
 [ext_resource type="Texture2D" uid="uid://b41dbfunc3nn7" path="res://assets/sprites/barrier.png" id="11_216mg"]
 [ext_resource type="PackedScene" uid="uid://bhc3l08dj7rvq" path="res://scenes/delivery_area/delivery_area.tscn" id="13_td3fc"]
+[ext_resource type="AudioStream" uid="uid://b1m8mmpori0qu" path="res://assets/sfx/change_malus.wav" id="15_krs01"]
+[ext_resource type="AudioStream" uid="uid://bfqiwjc8d3sqt" path="res://assets/sfx/more_malus.wav" id="16_2eo0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w2j2"]
 size = Vector2(28, 16)
@@ -2220,4 +2222,16 @@ limit_smoothed = true
 
 [node name="PauseLayer" parent="." instance=ExtResource("2")]
 
+[node name="audio" type="Node2D" parent="."]
+
+[node name="change_malus_audio" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("15_krs01")
+bus = &"SFX"
+
+[node name="more_difficult_audio" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("16_2eo0c")
+autoplay = true
+bus = &"SFX"
+
 [connection signal="body_entered" from="delivery_area" to="." method="_on_delivery_area_body_entered"]
+[connection signal="restart" from="PauseLayer" to="." method="_on_pause_layer_restart"]

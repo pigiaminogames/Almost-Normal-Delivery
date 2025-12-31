@@ -4,7 +4,7 @@ extends Node
 
 @onready var point: int = 0: set = update_malus
 @onready var actual_malus: int = -1
-@onready var counter: int = 0
+@onready var counter: int = -1
 
 @onready var weight_malus = 0.8
 
@@ -18,13 +18,22 @@ extends Node
 @onready var min_sec_inverted_arrow_timer: float = 5.0
 @onready var max_sec_inverted_arrow_timer: float = 10.0
 
+signal more_difficult_sound
+
+
+#func _ready() -> void:
+	#delivery_timer = 10.0
+
 
 func update_malus(new_point: int):
 	point = new_point
 	counter += 1
 	
-	if counter == 10:
+	print(counter)
+	
+	if counter >= 10:
 		counter = 0
+		more_difficult_sound.emit()
 		
 		update_weight_malus()
 		update_slippery_malus()
@@ -73,5 +82,3 @@ func update_inverted_arrows() -> void:
 func _process(delta: float) -> void:
 	if delivery_timer > 0.0:
 		delivery_timer -= delta
-	else:
-		delivery_timer = 30.0

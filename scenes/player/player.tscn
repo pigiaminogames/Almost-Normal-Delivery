@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ndocdwc5nxep"]
+[gd_scene load_steps=9 format=3 uid="uid://ndocdwc5nxep"]
 
 [ext_resource type="Script" uid="uid://bpbocujaiw1nx" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bphc5au8fr186" path="res://scenes/player/player_stackedsprite.gd" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://biqgu18sxlupj" path="res://assets/sprites/amazon_car2.png" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://dtsgeob3xdjtb" path="res://assets/ui/arrows.png" id="4_lvxji"]
+[ext_resource type="AudioStream" uid="uid://c6hxlqs1p4kng" path="res://assets/sfx/hurt.wav" id="5_p47bc"]
+[ext_resource type="AudioStream" uid="uid://dhvdoo05jai3" path="res://assets/sfx/change_direction.wav" id="6_75vfm"]
+[ext_resource type="AudioStream" uid="uid://db2phrd1beeai" path="res://assets/sfx/car.wav" id="7_0owmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(32, 56)
@@ -30,3 +33,16 @@ metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 position = Vector2(32, 0)
 rotation = 1.5707964
 texture = ExtResource("4_lvxji")
+
+[node name="audio" type="Node2D" parent="."]
+
+[node name="hurt_audio" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("5_p47bc")
+bus = &"SFX"
+
+[node name="change_direction_sound" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("6_75vfm")
+bus = &"SFX"
+
+[node name="car_sound" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("7_0owmy")
