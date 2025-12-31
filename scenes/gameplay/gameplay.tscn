@@ -2014,6 +2014,7 @@ metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 polygon = PackedVector2Array(-14, 0, 464, 0, 464, -86, 658, -86, 658, 108, -24, 108, -24, 0)
 
 [node name="fence_sand" type="StaticBody2D" parent="obstacles"]
+y_sort_enabled = true
 scale = Vector2(4, 4)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obstacles/fence_sand"]
@@ -2247,6 +2248,7 @@ sprite_hframes = 5
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="map_limit" type="StaticBody2D" parent="obstacles"]
+y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/map_limit"]
 position = Vector2(1687, -700)

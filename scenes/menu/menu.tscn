@@ -111,7 +111,6 @@ theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
 text = "font by somepx"
-horizontal_alignment = 2
 
 [node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
 visible = false

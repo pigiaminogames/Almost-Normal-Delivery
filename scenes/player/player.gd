@@ -167,12 +167,14 @@ func update_car_sound() -> void:
 
 
 func start_inverted_timer() -> void:
+	change_direction_sound.pitch_scale = randf_range(0.85, 1.15)
 	change_direction_sound.play()
 	wait_inverted_arrow_timer = 0.0
 	inverted_arrow_timer = globalscript.inverted_arrow_timer
 
 
 func start_wait_inverted_timer() -> void:
+	change_direction_sound.pitch_scale = randf_range(0.85, 1.15)
 	change_direction_sound.play()
 	inverted_arrow_timer = 0.0
 	wait_inverted_arrow_timer = randf_range(globalscript.min_sec_inverted_arrow_timer, globalscript.max_sec_inverted_arrow_timer)

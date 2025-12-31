@@ -89,6 +89,7 @@ func change_malus() -> void:
 	globalscript.actual_malus = random_malus
 	
 	print("Actual malus: " + str(globalscript.actual_malus))
+	change_malus_audio.pitch_scale = randf_range(0.85, 1.15)
 	change_malus_audio.play()
 
 
@@ -105,4 +106,5 @@ func _on_pause_layer_restart() -> void:
 
 
 func more_difficult() -> void:
+	more_difficult_audio.pitch_scale = randf_range(0.85, 1.15)
 	more_difficult_audio.play()
