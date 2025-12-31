@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var resume_option := $MarginContainer/Control/VBoxOptions/Resume
 @onready var pause_options = $MarginContainer/Control/VBoxOptions
 @onready var color_rect = $ColorRect
+@onready var restart_button: LinkButton = $MarginContainer/Control2/VBoxOptions/Restart
 #@onready var gameplay_margin_container: MarginContainer = $gameplay_margin_container
 
 @onready var points_panel_container: PanelContainer = $MarginContainer/Control/PanelContainer
@@ -11,9 +12,13 @@ extends CanvasLayer
 @onready var timer_panel_conteiner: PanelContainer = $MarginContainer/Control/PanelContainer3
 @onready var arrow_container: Container = $MarginContainer/Control/Container
 
+@onready var game_over_1_container: MarginContainer = $MarginContainer/Control/MarginContainer
+@onready var game_over_2_container: VBoxContainer = $MarginContainer/Control2/VBoxOptions
+
 @onready var arrow_stackedsprite: stackedsprite = $MarginContainer/Control/Container/arrow_stackedsprite
 @onready var points_label: Label = $MarginContainer/Control/PanelContainer/points_label
 @onready var timer_label: Label = $MarginContainer/Control/PanelContainer3/timer_label
+@onready var package_delivered_label: Label = $MarginContainer/Control/MarginContainer/VBoxContainer/package_delivered
 #@onready var actual_malus_label: Label = %actual_malus_label
 
 @onready var malus_1: TextureRect = $MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer/TextureRect
@@ -25,6 +30,12 @@ extends CanvasLayer
 
 @onready var nodes_grp1 = [arrow_container, points_panel_container, malus_panel_container, timer_panel_conteiner] # should be visible during gamemplay and hidden during pause
 @onready var nodes_grp2 = [pause_options, color_rect] # should be visible only in pause menu
+@onready var nodes_grp3 = [game_over_1_container, game_over_2_container]
+
+
+signal restart
+
+var is_game_over := false
 
 
 func _ready():
@@ -41,6 +52,8 @@ func pause_show():
 		n.hide()
 	for n in nodes_grp2:
 		n.show()
+	for n in nodes_grp3:
+		n.hide()
 
 
 func pause_hide():
@@ -49,6 +62,10 @@ func pause_hide():
 			n.show()
 
 	for n in nodes_grp2:
+		if n:
+			n.hide()
+	
+	for n in nodes_grp3:
 		if n:
 			n.hide()
 
@@ -73,12 +90,38 @@ func pause_game():
 	pause_show()
 
 
+func game_over() -> void:
+	#restart_button.grab_focus()
+	get_tree().paused = true
+	
+	for n in nodes_grp1:
+		n.hide()
+	for n in nodes_grp2:
+		n.hide()
+	for n in nodes_grp3:
+		n.show()
+	
+	await get_tree().process_frame
+	restart_button.grab_focus()
+	
+	get_viewport().set_input_as_handled()
+	
+	if color_rect.visible == false:
+		color_rect.show()
+	
+	if globalscript.point == 1:
+		package_delivered_label.text = "YOU DELIVERED " + str(globalscript.point) + " PACKAGE!"
+	else:
+		package_delivered_label.text = "YOU DELIVERED " + str(globalscript.point) + " PACKAGES!"
+
+
 func _on_Resume_pressed():
 	resume()
 
 
 func _on_main_menu_pressed():
 	GGT.change_scene("res://scenes/menu/menu.tscn", {"show_progress_bar": false})
+
 
 func step_malus_atlas(texture: TextureRect) -> void:
 	var original_tex := texture.texture
@@ -109,6 +152,10 @@ func _process(_delta: float) -> void:
 		4:
 			set_icon_active(malus_4, true)
 			#actual_malus_label.text = "WARNING: the navigator is not functioning properly"
+	
+	if globalscript.delivery_timer <= 0.0 and !is_game_over:
+		is_game_over = true
+		game_over()
 
 
 func reset_malus_icon() -> void:
@@ -121,3 +168,11 @@ func reset_malus_icon() -> void:
 func set_icon_active(texture: TextureRect, active: bool) -> void:
 	if texture.texture is AtlasTexture:
 		texture.texture.region.position.x = 16 if active else 0
+
+
+func _on_main_menu_2_pressed() -> void:
+	GGT.change_scene("res://scenes/menu/menu.tscn", {"show_progress_bar": false})
+
+
+func _on_restart_pressed() -> void:
+	restart.emit()

@@ -104,6 +104,7 @@ text = "made by: Pigia"
 horizontal_alignment = 2
 
 [node name="Developer1" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
@@ -113,6 +114,7 @@ text = "font by somepx"
 horizontal_alignment = 2
 
 [node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)

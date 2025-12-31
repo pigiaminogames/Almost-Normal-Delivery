@@ -2,10 +2,16 @@ extends Node2D
 
 @onready var delivery_area: Area2D = $delivery_area
 @onready var player: player_gd = $player
+
+@onready var change_malus_audio: AudioStreamPlayer = $audio/change_malus_audio
+@onready var more_difficult_audio: AudioStreamPlayer = $audio/more_difficult_audio
+
+
 var t = 0
 var numr: int = -1
 
 func _ready() -> void:
+	get_tree().paused = false
 	var scene_data = GGT.get_current_scene_data()
 	print("GGT/Gameplay: scene params are ", scene_data.params)
 
@@ -16,6 +22,11 @@ func _ready() -> void:
 	
 	change_delivery_area_pos()
 	change_malus()
+	
+	globalscript.point = 0
+	globalscript.delivery_timer = 30.0
+	
+	globalscript.more_difficult_sound.connect(more_difficult)
 
 
 func _process(_delta):
@@ -73,15 +84,25 @@ func change_malus() -> void:
 	while(random_malus == globalscript.actual_malus):
 		random_malus = (randi() % 4 + 1)
 	
-	#var random_malus := 1
+	#var random_malus := 3
 	
 	globalscript.actual_malus = random_malus
 	
 	print("Actual malus: " + str(globalscript.actual_malus))
+	change_malus_audio.play()
 
 
 func _on_delivery_area_body_entered(body: Node2D) -> void:
 	if body == player:
 		globalscript.point += 1
+		globalscript.delivery_timer = 30.0
 		change_delivery_area_pos()
 		change_malus()
+
+
+func _on_pause_layer_restart() -> void:
+	get_tree().reload_current_scene()
+
+
+func more_difficult() -> void:
+	more_difficult_audio.play()

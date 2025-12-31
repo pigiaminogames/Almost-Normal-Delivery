@@ -61,7 +61,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color(0.243137, 0.211765, 0.290196, 0.717647)
+color = Color(0, 0, 0, 0.5882353)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -76,10 +76,12 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
 [node name="Control" type="Control" parent="MarginContainer"]
+process_mode = 3
 layout_mode = 2
 mouse_filter = 2
 
 [node name="VBoxOptions" type="VBoxContainer" parent="MarginContainer/Control"]
+process_mode = 3
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -250,5 +252,88 @@ texture = SubResource("AtlasTexture_1ec5a")
 layout_mode = 2
 texture = ExtResource("13_e3ttb")
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.5
+offset_right = 234.5
+offset_bottom = 135.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "YOU'RE FIRED"
+
+[node name="package_delivered" type="Label" parent="MarginContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "You delivered"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Control"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -61.0
+offset_right = 95.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Control2" type="Control" parent="MarginContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="VBoxOptions" type="VBoxContainer" parent="MarginContainer/Control2"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -38.0
+offset_right = 58.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Restart" type="LinkButton" parent="MarginContainer/Control2/VBoxOptions"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../MainMenu_2")
+focus_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_5vvpd")
+theme_override_font_sizes/font_size = 50
+text = "RESTART"
+underline = 2
+
+[node name="MainMenu_2" type="LinkButton" parent="MarginContainer/Control2/VBoxOptions"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Restart")
+focus_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_5vvpd")
+theme_override_font_sizes/font_size = 50
+text = "MAIN MENU"
+underline = 2
+
 [connection signal="pressed" from="MarginContainer/Control/VBoxOptions/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxOptions/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/Control2/VBoxOptions/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/Control2/VBoxOptions/MainMenu_2" to="." method="_on_main_menu_2_pressed"]
