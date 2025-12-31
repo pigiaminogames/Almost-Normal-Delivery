@@ -29,9 +29,9 @@ func _ready() -> void:
 	globalscript.more_difficult_sound.connect(more_difficult)
 
 
-func _process(_delta):
-	if Input.is_action_just_pressed("ggt_debug_step_frame"):
-		globalscript.point += 1
+#func _process(_delta):
+	#if Input.is_action_just_pressed("ggt_debug_step_frame"):
+		#globalscript.point += 1
 
 
 func change_delivery_area_pos() -> void:
