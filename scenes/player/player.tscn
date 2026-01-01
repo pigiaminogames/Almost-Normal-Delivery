@@ -27,6 +27,7 @@ scale = Vector2(4, 4)
 script = ExtResource("2_gmlin")
 texture = ExtResource("3_gmlin")
 sprite_hframes = 8
+lod_enabled = true
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="arrow" type="Sprite2D" parent="."]

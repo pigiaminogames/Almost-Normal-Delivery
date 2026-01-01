@@ -16,18 +16,12 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjbjd"]
 texture = ExtResource("5_p6wo1")
-expand_margin_left = 10.0
-expand_margin_right = 10.0
-axis_stretch_horizontal = 2
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6wo1"]
 texture = ExtResource("5_p6wo1")
 expand_margin_left = 20.0
-expand_margin_top = 20.0
 expand_margin_right = 20.0
-expand_margin_bottom = 20.0
-axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyxla"]
@@ -133,6 +127,7 @@ scale = Vector2(4, 4)
 script = ExtResource("2_nevgd")
 texture = ExtResource("3_nevgd")
 sprite_hframes = 4
+lod_enabled = true
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Control"]
@@ -176,6 +171,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5vvpd")
 theme_override_font_sizes/font_size = 30
 text = "Time: "
+horizontal_alignment = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Control"]
 layout_mode = 1
@@ -274,22 +270,6 @@ text = "YOU'RE FIRED"
 layout_mode = 2
 text = "You delivered"
 horizontal_alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Control"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -61.0
-offset_right = 95.0
-offset_bottom = 61.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
 
 [node name="Control2" type="Control" parent="MarginContainer"]
 process_mode = 3

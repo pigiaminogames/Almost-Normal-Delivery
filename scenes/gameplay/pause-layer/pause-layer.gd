@@ -110,9 +110,9 @@ func game_over() -> void:
 		color_rect.show()
 	
 	if globalscript.point == 1:
-		package_delivered_label.text = "YOU DELIVERED " + str(globalscript.point) + " PACKAGE!"
+		package_delivered_label.text = "YOU DELIVERED " + str(globalscript.point) + " PACKAGE"
 	else:
-		package_delivered_label.text = "YOU DELIVERED " + str(globalscript.point) + " PACKAGES!"
+		package_delivered_label.text = "YOU DELIVERED " + str(globalscript.point) + " PACKAGES"
 
 
 func _on_Resume_pressed():
