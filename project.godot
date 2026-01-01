@@ -12,8 +12,10 @@ config_version=5
 
 config/name="macbeth"
 config/version="0.0.1"
-run/main_scene="res://scenes/menu/menu.tscn"
+run/main_scene="uid://k5ga0he7efrl"
 config/features=PackedStringArray("4.5")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://assets/sprites/icon.png"
 
 [autoload]
