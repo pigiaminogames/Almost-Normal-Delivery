@@ -27,6 +27,14 @@ var sprites = []
 @onready var change_direction_sound: AudioStreamPlayer2D = $audio/change_direction_sound
 @onready var car_sound: AudioStreamPlayer = $audio/car_sound
 
+@export_category("Trail")
+@export var trail: PackedScene
+@onready var trail_pos: Marker2D = $Trail_pos
+@onready var trail_pos_2: Marker2D = $Trail_pos_2
+var current_skid_l: Line2D
+var current_skid_r: Line2D
+var is_turning := false
+
 
 func _ready() -> void:
 	global_rotation = 1.57
@@ -106,18 +114,73 @@ func handle_input(delta) -> void:
 		direction_factor = -1
 	
 	if direction_factor != 0:
+		var input_turn = Input.get_axis("key_left", "key_right")
+		
 		if globalscript.actual_malus == 3:
 			if inverted_arrow_timer > 0.0:
 				turn = Input.get_axis("key_right", "key_left")
 				arrow.show()
 			elif wait_inverted_arrow_timer > 0.0:
-				turn = Input.get_axis("key_left", "key_right")
+				turn = input_turn
 				arrow.hide()
 		else:
-			turn = Input.get_axis("key_left", "key_right")
+			turn = input_turn
 			arrow.hide()
 		
 		rotation += turn * turn_speed * delta * direction_factor
+		
+		if abs(turn) > 0.1 and velocity.length() > 50.0:
+			if not is_turning:
+				start_skid()
+			update_skid()
+		else:
+			if is_turning:
+				stop_skid()
+	else:
+		if is_turning:
+			stop_skid()
+
+
+func start_skid() -> void:
+	is_turning = true
+	
+	if trail:
+		current_skid_l = trail.instantiate()
+		current_skid_r = trail.instantiate()
+		
+		get_tree().current_scene.add_child(current_skid_l)
+		get_tree().current_scene.add_child(current_skid_r)
+		
+		var alpha_boost := 1.0
+		if globalscript.actual_malus == 2:
+			alpha_boost = 1.0 + globalscript.actual_slippery_factor
+		
+		current_skid_l.modulate.a *= alpha_boost
+		current_skid_r.modulate.a *= alpha_boost
+
+
+func update_skid() -> void:
+	if is_instance_valid(current_skid_l):
+		current_skid_l.add_point(trail_pos.global_position)
+	if is_instance_valid(current_skid_r):
+		current_skid_r.add_point(trail_pos_2.global_position)
+	
+	if current_skid_l and current_skid_l.get_point_count() > 100:
+		current_skid_l.remove_point(0)
+	if current_skid_r and current_skid_r.get_point_count() > 100:
+		current_skid_r.remove_point(0)
+
+
+func stop_skid() -> void:
+	is_turning = false
+	
+	if is_instance_valid(current_skid_l) and current_skid_l.has_method("stop_drawing"):
+		current_skid_l.stop_drawing()
+	if is_instance_valid(current_skid_r) and current_skid_r.has_method("stop_drawing"):
+		current_skid_r.stop_drawing()
+	
+	current_skid_l = null
+	current_skid_r = null
 
 
 func apply_friction(delta) -> void:
