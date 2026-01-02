@@ -20,6 +20,8 @@ func _ready() -> void:
 
 	print("GGT/Gameplay: scene transition animation finished")
 	
+	globalscript.is_game_active = true
+	
 	change_delivery_area_pos()
 	change_malus()
 	

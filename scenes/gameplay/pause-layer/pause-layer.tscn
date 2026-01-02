@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cmp47ven52wms" path="res://scenes/gameplay/pause-layer/arrow_stackedsprite.gd" id="2_nevgd"]
 [ext_resource type="Texture2D" uid="uid://d37xcbpb2ux7c" path="res://assets/sprites/arrow.png" id="3_nevgd"]
 [ext_resource type="FontFile" uid="uid://cv4df1wn1g7aa" path="res://assets/fonts/equipment-pro-v1.1/EquipmentPro.otf" id="4_5vvpd"]
+[ext_resource type="StyleBox" uid="uid://mh8swdihsu4c" path="res://resources/theme/pause-layer.tres" id="5_kiuki"]
 [ext_resource type="Texture2D" uid="uid://cob1u1qw26j41" path="res://assets/ui/Custom Border and Panels Menu All Part/Border All 6.png" id="5_p6wo1"]
 [ext_resource type="Texture2D" uid="uid://cethm612ouuf7" path="res://assets/ui/Sprite-0001.png" id="6_bjbjd"]
 [ext_resource type="Texture2D" uid="uid://bleqiy1y4avkq" path="res://assets/ui/weight.png" id="7_48xoo"]
@@ -13,10 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dtsgeob3xdjtb" path="res://assets/ui/arrows.png" id="11_1ec5a"]
 [ext_resource type="Texture2D" uid="uid://f14lfvtpudad" path="res://assets/ui/Sprite-0004.png" id="12_h52jg"]
 [ext_resource type="Texture2D" uid="uid://cmtiaxk4avarl" path="res://assets/ui/navigator.png" id="13_e3ttb"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjbjd"]
-texture = ExtResource("5_p6wo1")
-region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6wo1"]
 texture = ExtResource("5_p6wo1")
@@ -127,7 +124,6 @@ scale = Vector2(4, 4)
 script = ExtResource("2_nevgd")
 texture = ExtResource("3_nevgd")
 sprite_hframes = 4
-lod_enabled = true
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Control"]
@@ -143,7 +139,7 @@ offset_right = -11.791992
 offset_bottom = 8.819946
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_bjbjd")
+theme_override_styles/panel = ExtResource("5_kiuki")
 
 [node name="points_label" type="Label" parent="MarginContainer/Control/PanelContainer"]
 layout_mode = 2
