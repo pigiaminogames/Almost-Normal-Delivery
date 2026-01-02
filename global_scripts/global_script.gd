@@ -18,6 +18,8 @@ extends Node
 @onready var min_sec_inverted_arrow_timer: float = 5.0
 @onready var max_sec_inverted_arrow_timer: float = 10.0
 
+@onready var is_game_active: bool
+
 signal more_difficult_sound
 
 
@@ -26,19 +28,20 @@ signal more_difficult_sound
 
 
 func update_malus(new_point: int):
-	point = new_point
-	counter += 1
-	
-	print(counter)
-	
-	if counter >= 10:
-		counter = 0
-		more_difficult_sound.emit()
+	if is_game_active:
+		point = new_point
+		counter += 1
 		
-		update_weight_malus()
-		update_slippery_malus()
-		update_arrow_timers()
-		update_inverted_arrows()
+		print(counter)
+		
+		if counter >= 10:
+			counter = 0
+			more_difficult_sound.emit()
+			
+			update_weight_malus()
+			update_slippery_malus()
+			update_arrow_timers()
+			update_inverted_arrows()
 
 
 func update_weight_malus() -> void:
@@ -80,5 +83,6 @@ func update_inverted_arrows() -> void:
 
 
 func _process(delta: float) -> void:
-	if delivery_timer > 0.0:
-		delivery_timer -= delta
+	if is_game_active:
+		if delivery_timer > 0.0:
+			delivery_timer -= delta

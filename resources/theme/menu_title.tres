@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b7hcrsfuqhsip"]
+
+[ext_resource type="Texture2D" uid="uid://cob1u1qw26j41" path="res://assets/ui/Custom Border and Panels Menu All Part/Border All 6.png" id="1_a6fj0"]
+
+[resource]
+texture = ExtResource("1_a6fj0")
+expand_margin_left = 150.0
+expand_margin_top = 50.0
+expand_margin_right = 150.0
+expand_margin_bottom = 50.0
+region_rect = Rect2(0, 0, 64, 64)

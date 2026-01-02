@@ -96,7 +96,7 @@ func handle_input(delta) -> void:
 			#turn = Input.get_axis("key_right", "key_left")
 	
 	speed = clamp(speed, -max_speed * 0.5, max_speed)
-	print(speed)
+	#print(speed)
 	
 	var direction_factor: int = 0
 	

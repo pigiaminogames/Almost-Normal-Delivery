@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=8 format=3 uid="uid://c2gocuhw2o7py"]
 
 [ext_resource type="FontFile" uid="uid://cv4df1wn1g7aa" path="res://assets/fonts/equipment-pro-v1.1/EquipmentPro.otf" id="2_037ec"]
+[ext_resource type="PackedScene" uid="uid://bwxpgpidl032g" path="res://scenes/gameplay/world_map.tscn" id="2_y1o0p"]
+[ext_resource type="PackedScene" uid="uid://ndocdwc5nxep" path="res://scenes/player/player.tscn" id="3_y1o0p"]
 [ext_resource type="Theme" uid="uid://ducfept6pmkkm" path="res://resources/theme/theme-main.tres" id="4_037ec"]
+[ext_resource type="StyleBox" uid="uid://b7hcrsfuqhsip" path="res://resources/theme/menu_title.tres" id="4_r8yej"]
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
+[ext_resource type="StyleBox" uid="uid://cfptn0w7oj4lu" path="res://resources/theme/credits.tres" id="7_3y2rt"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,27 +17,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="world_map" parent="." instance=ExtResource("2_y1o0p")]
+
+[node name="player" parent="." instance=ExtResource("3_y1o0p")]
+position = Vector2(339, 473)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2(0, -100)
+zoom = Vector2(2, 2)
+limit_left = -250
+limit_top = -688
+limit_right = 3600
+limit_bottom = 2032
+limit_smoothed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.176471, 0.682353, 0.647059, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Control"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,14 +55,18 @@ offset_bottom = -339.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="MarginContainer/Control/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/Control/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_r8yej")
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/Control/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 105
 text = "ALMOST NORMAL DELIVERY"
 uppercase = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="PlayButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ExitButton")
@@ -74,7 +89,7 @@ focus_next = NodePath("../ExitButton")
 theme = ExtResource("4_037ec")
 text = "START"
 
-[node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="CanvasLayer/MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
@@ -82,28 +97,34 @@ focus_previous = NodePath("../PlayButton")
 theme = ExtResource("4_037ec")
 text = "EXIT"
 
-[node name="Credits" type="VBoxContainer" parent="MarginContainer/Control"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -23.0
+offset_left = -207.0
+offset_top = -39.0
+offset_right = -33.0
+offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = ExtResource("7_3y2rt")
 
-[node name="MadeByLabel" type="Label" parent="MarginContainer/Control/Credits"]
+[node name="Credits" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control/PanelContainer"]
+layout_mode = 2
+
+[node name="MadeByLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
-text = "made by: Pigia"
+text = "made by: Davide Guidi"
 horizontal_alignment = 2
 
-[node name="Developer1" type="Label" parent="MarginContainer/Control/Credits"]
+[node name="Developer1" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
@@ -112,7 +133,7 @@ theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
 text = "font by somepx"
 
-[node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
+[node name="Developer2" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
@@ -122,7 +143,7 @@ theme_override_font_sizes/font_size = 21
 text = "tileset by nyknck, ToffeeCraft and Dragon1727"
 horizontal_alignment = 2
 
-[node name="Developer3" type="Label" parent="MarginContainer/Control/Credits"]
+[node name="Developer3" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
@@ -132,5 +153,5 @@ theme_override_font_sizes/font_size = 21
 text = "ui tileset by BDragon1727"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
