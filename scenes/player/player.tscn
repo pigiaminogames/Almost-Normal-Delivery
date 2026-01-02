@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ndocdwc5nxep"]
+[gd_scene load_steps=10 format=3 uid="uid://ndocdwc5nxep"]
 
 [ext_resource type="Script" uid="uid://bpbocujaiw1nx" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bphc5au8fr186" path="res://scenes/player/player_stackedsprite.gd" id="2_gmlin"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c6hxlqs1p4kng" path="res://assets/sfx/hurt.wav" id="5_p47bc"]
 [ext_resource type="AudioStream" uid="uid://dhvdoo05jai3" path="res://assets/sfx/change_direction.wav" id="6_75vfm"]
 [ext_resource type="AudioStream" uid="uid://db2phrd1beeai" path="res://assets/sfx/car.wav" id="7_0owmy"]
+[ext_resource type="PackedScene" uid="uid://cuor1nr46l8f" path="res://scenes/player/trail.tscn" id="8_qek5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(32, 56)
@@ -17,6 +18,7 @@ script = ExtResource("1_dovo2")
 acceleration = 100.0
 max_speed = 450.0
 friction = 350.0
+trail = ExtResource("8_qek5x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gmlin")
@@ -27,7 +29,6 @@ scale = Vector2(4, 4)
 script = ExtResource("2_gmlin")
 texture = ExtResource("3_gmlin")
 sprite_hframes = 8
-lod_enabled = true
 metadata/_custom_type_script = "uid://ch2y1mqww1d7b"
 
 [node name="arrow" type="Sprite2D" parent="."]
@@ -47,3 +48,9 @@ bus = &"SFX"
 
 [node name="car_sound" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("7_0owmy")
+
+[node name="Trail_pos" type="Marker2D" parent="."]
+position = Vector2(-14, 12)
+
+[node name="Trail_pos_2" type="Marker2D" parent="."]
+position = Vector2(14, 12)

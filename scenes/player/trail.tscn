@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuor1nr46l8f"]
+
+[ext_resource type="Script" uid="uid://cquh6rr8fjrh1" path="res://scenes/player/trail.gd" id="1_uhw3s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uhw3s"]
+width = 8
+height = 8
+
+[node name="trail" type="Line2D"]
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+texture = SubResource("NoiseTexture2D_uhw3s")
+texture_mode = 1
+script = ExtResource("1_uhw3s")
