@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=6 format=3 uid="uid://c2gocuhw2o7py"]
 
 [ext_resource type="FontFile" uid="uid://cv4df1wn1g7aa" path="res://assets/fonts/equipment-pro-v1.1/EquipmentPro.otf" id="2_037ec"]
 [ext_resource type="PackedScene" uid="uid://bwxpgpidl032g" path="res://scenes/gameplay/world_map.tscn" id="2_y1o0p"]
 [ext_resource type="PackedScene" uid="uid://ndocdwc5nxep" path="res://scenes/player/player.tscn" id="3_y1o0p"]
 [ext_resource type="Theme" uid="uid://ducfept6pmkkm" path="res://resources/theme/theme-main.tres" id="4_037ec"]
-[ext_resource type="StyleBox" uid="uid://b7hcrsfuqhsip" path="res://resources/theme/menu_title.tres" id="4_r8yej"]
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
-[ext_resource type="StyleBox" uid="uid://cfptn0w7oj4lu" path="res://resources/theme/credits.tres" id="7_3y2rt"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -55,14 +53,16 @@ offset_bottom = -339.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/Control/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/Control/CenterContainer"]
+visible = false
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_r8yej")
 
-[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/Control/CenterContainer/PanelContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/Control/CenterContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_037ec")
-theme_override_font_sizes/font_size = 105
+theme_override_font_sizes/font_size = 130
 text = "ALMOST NORMAL DELIVERY"
 uppercase = true
 
@@ -97,34 +97,29 @@ focus_previous = NodePath("../PlayButton")
 theme = ExtResource("4_037ec")
 text = "EXIT"
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/Control"]
+[node name="Credits" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -207.0
-offset_top = -39.0
-offset_right = -33.0
-offset_bottom = -17.0
+offset_left = -174.0
+offset_top = -22.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = ExtResource("7_3y2rt")
 
-[node name="Credits" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control/PanelContainer"]
-layout_mode = 2
-
-[node name="MadeByLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
+[node name="MadeByLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/Credits"]
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
 text = "made by: Davide Guidi"
 horizontal_alignment = 2
 
-[node name="Developer1" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
+[node name="Developer1" type="Label" parent="CanvasLayer/MarginContainer/Control/Credits"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
@@ -133,7 +128,7 @@ theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 21
 text = "font by somepx"
 
-[node name="Developer2" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
+[node name="Developer2" type="Label" parent="CanvasLayer/MarginContainer/Control/Credits"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"
@@ -143,7 +138,7 @@ theme_override_font_sizes/font_size = 21
 text = "tileset by nyknck, ToffeeCraft and Dragon1727"
 horizontal_alignment = 2
 
-[node name="Developer3" type="Label" parent="CanvasLayer/MarginContainer/Control/PanelContainer/Credits"]
+[node name="Developer3" type="Label" parent="CanvasLayer/MarginContainer/Control/Credits"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"LabelSmall"

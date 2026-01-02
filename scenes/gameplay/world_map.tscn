@@ -94,6 +94,7 @@ shape = SubResource("RectangleShape2D_0w2j2")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/amazon_building"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_1" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -113,6 +114,7 @@ shape = SubResource("RectangleShape2D_gh441")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_1"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_70" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -132,6 +134,7 @@ shape = SubResource("RectangleShape2D_gh441")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_70"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_66" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -152,6 +155,7 @@ shape = SubResource("RectangleShape2D_td3fc")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_66"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_67" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -172,6 +176,7 @@ shape = SubResource("RectangleShape2D_td3fc")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_67"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_65" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -191,6 +196,7 @@ shape = SubResource("RectangleShape2D_gh441")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_65"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_2" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -212,6 +218,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_2"]
 position = Vector2(-1.0681151e-05, 0.09999694)
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_22" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -232,6 +239,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_22"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_23" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -252,6 +260,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_23"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_24" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -272,6 +281,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_24"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_25" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -293,6 +303,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_25"]
 position = Vector2(-0.3000122, -6.6757198e-06)
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_61" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -313,6 +324,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_61"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_62" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -334,6 +346,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_62"]
 position = Vector2(0.19993286, 0.19999388)
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_63" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -354,6 +367,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_63"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_64" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -374,6 +388,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_64"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_43" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -395,6 +410,7 @@ shape = SubResource("RectangleShape2D_pa1on")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_43"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_3" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -415,6 +431,7 @@ shape = SubResource("RectangleShape2D_elju3")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_3"]
 position = Vector2(1787, 606)
 rect = Rect2(-3688, -1683, 4448, 2439)
+show_rect = false
 
 [node name="building_4" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -435,6 +452,7 @@ shape = SubResource("RectangleShape2D_lb4ud")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_4"]
 position = Vector2(1107, 516)
 rect = Rect2(-3230, -1545, 4800, 1912)
+show_rect = false
 
 [node name="building_5" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -454,7 +472,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_bhb63")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_5"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-215.89998, -19.065, 347.115, 244.66498)
+show_rect = false
 
 [node name="building_72" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -474,6 +493,7 @@ shape = SubResource("RectangleShape2D_216mg")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_72"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_73" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -493,6 +513,7 @@ shape = SubResource("RectangleShape2D_216mg")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_73"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_74" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -512,6 +533,7 @@ shape = SubResource("RectangleShape2D_216mg")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_74"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_75" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -530,7 +552,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_216mg")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_75"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-39.01, -50.000004, 170.225, 131.9)
+show_rect = false
 
 [node name="building_71" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -550,7 +573,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_bhb63")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_71"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-143.99997, -19.065, 221.79999, 71.96499)
+show_rect = false
 
 [node name="building_6" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -571,6 +595,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_6"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_7" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -591,6 +616,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_7"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_8" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -611,6 +637,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_8"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_9" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -631,6 +658,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_9"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_10" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -651,6 +679,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_10"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_11" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -671,6 +700,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_11"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_12" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -691,6 +721,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_12"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_13" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -711,6 +742,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_13"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_14" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -731,6 +763,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_14"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_15" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -751,6 +784,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_15"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_16" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -771,6 +805,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_16"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_17" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -791,6 +826,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_17"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_18" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -811,6 +847,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_18"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_19" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -831,6 +868,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_19"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_20" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -851,6 +889,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_20"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_21" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -871,6 +910,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_21"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_45" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -891,6 +931,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_45"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_46" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -911,6 +952,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_46"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_47" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -931,6 +973,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_47"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_48" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -951,6 +994,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_48"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_49" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -971,6 +1015,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_49"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_50" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -991,6 +1036,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_50"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_51" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1011,6 +1057,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_51"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_52" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1031,6 +1078,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_52"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_53" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1050,7 +1098,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_53"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-147.9, -19.065, 279.115, 89.06497)
+show_rect = false
 
 [node name="building_54" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1070,7 +1119,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_54"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-118.99999, -28.700031, 250.215, 85.399994)
+show_rect = false
 
 [node name="building_55" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1090,7 +1140,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_55"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-151.59999, -19.065, 282.815, 73.464966)
+show_rect = false
 
 [node name="building_56" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1110,7 +1161,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_56"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-188.79999, -19.065, 320.015, 62.86496)
+show_rect = false
 
 [node name="building_57" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1130,7 +1182,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_57"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-148.5, -19.065, 279.71503, 85.36496)
+show_rect = false
 
 [node name="building_58" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1150,7 +1203,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_58"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-127.2, -19.065, 258.415, 77.86496)
+show_rect = false
 
 [node name="building_59" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1170,7 +1224,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_59"]
-rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+rect = Rect2(-68.599976, -19.065, 199.81499, 82.464966)
+show_rect = false
 
 [node name="building_60" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1191,6 +1246,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_60"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_69" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1211,6 +1267,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_69"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_33" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1231,6 +1288,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_33"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_34" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1251,6 +1309,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_34"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_41" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1271,6 +1330,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_41"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="building_42" type="StaticBody2D" parent="buildings"]
 y_sort_enabled = true
@@ -1291,6 +1351,7 @@ shape = SubResource("RectangleShape2D_i6m2i")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="buildings/building_42"]
 rect = Rect2(-39.01, -19.065, 170.225, 239.325)
+show_rect = false
 
 [node name="obstacles" type="Node2D" parent="."]
 y_sort_enabled = true
