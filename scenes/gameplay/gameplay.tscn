@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://obh6lymymjro"]
+[gd_scene load_steps=10 format=3 uid="uid://obh6lymymjro"]
 
 [ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://ndocdwc5nxep" path="res://scenes/player/player.tscn" id="2_2p25t"]
 [ext_resource type="PackedScene" uid="uid://bwxpgpidl032g" path="res://scenes/gameplay/world_map.tscn" id="2_gh441"]
 [ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://scenes/gameplay/gameplay.gd" id="5"]
+[ext_resource type="AudioStream" uid="uid://pcjh1sj2a2sh" path="res://assets/sfx/more_difficult_audio.wav" id="7_elju3"]
+[ext_resource type="AudioStream" uid="uid://dvhovb87eygo2" path="res://assets/sfx/countdown_1.wav" id="8_elju3"]
+[ext_resource type="AudioStream" uid="uid://cgcykdvrmqthb" path="res://assets/sfx/countdown_2.wav" id="9_lb4ud"]
 [ext_resource type="PackedScene" uid="uid://bhc3l08dj7rvq" path="res://scenes/delivery_area/delivery_area.tscn" id="13_td3fc"]
 [ext_resource type="AudioStream" uid="uid://b1m8mmpori0qu" path="res://assets/sfx/change_malus.wav" id="15_krs01"]
-[ext_resource type="AudioStream" uid="uid://bfqiwjc8d3sqt" path="res://assets/sfx/more_malus.wav" id="16_2eo0c"]
 
 [node name="gameplay" type="Node2D"]
 y_sort_enabled = true
@@ -35,15 +37,29 @@ limit_smoothed = true
 [node name="PauseLayer" parent="." instance=ExtResource("2")]
 
 [node name="audio" type="Node2D" parent="."]
+process_mode = 3
 
 [node name="change_malus_audio" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("15_krs01")
 bus = &"SFX"
 
 [node name="more_difficult_audio" type="AudioStreamPlayer" parent="audio"]
-stream = ExtResource("16_2eo0c")
-autoplay = true
+stream = ExtResource("7_elju3")
 bus = &"SFX"
 
+[node name="countdown_1" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("8_elju3")
+bus = &"SFX"
+
+[node name="countdown_2" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("9_lb4ud")
+bus = &"SFX"
+
+[node name="countdown_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="more_difficult_finished" from="." to="PauseLayer" method="_on_gameplay_more_difficult_finished"]
+[connection signal="timer_finished" from="." to="player" method="_on_gameplay_timer_finished"]
+[connection signal="timer_finished" from="." to="PauseLayer" method="_on_gameplay_timer_finished"]
 [connection signal="body_entered" from="delivery_area" to="." method="_on_delivery_area_body_entered"]
 [connection signal="restart" from="PauseLayer" to="." method="_on_pause_layer_restart"]

@@ -6,9 +6,16 @@ extends Node2D
 @onready var change_malus_audio: AudioStreamPlayer = $audio/change_malus_audio
 @onready var more_difficult_audio: AudioStreamPlayer = $audio/more_difficult_audio
 
+@onready var countdown_1: AudioStreamPlayer = $audio/countdown_1
+@onready var countdown_2: AudioStreamPlayer = $audio/countdown_2
+@onready var countdown_timer: Timer = $countdown_timer
+
+signal timer_finished
+signal more_difficult_finished
 
 var t = 0
 var numr: int = -1
+
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -20,15 +27,28 @@ func _ready() -> void:
 
 	print("GGT/Gameplay: scene transition animation finished")
 	
-	globalscript.is_game_active = true
-	
-	change_delivery_area_pos()
-	change_malus()
-	
 	globalscript.point = 0
 	globalscript.delivery_timer = 30.0
+	globalscript.timer_enabled = false
+	#globalscript.is_game_active = true
+	#countdown()
 	
 	globalscript.more_difficult_sound.connect(more_difficult)
+	
+	start_countdown_timer()
+
+
+#func _physics_process(delta: float) -> void:
+	#while countdown_timer >= 0.0:
+		#countdown_timer -= delta
+		#
+		#if countdown_timer == 3.0 or countdown_timer == 2.0 or countdown_timer == 1.0:
+			#countdown_1.play()
+		#elif countdown_timer == 0.0:
+			#countdown_2.play()
+	#
+	#await countdown_timer == 0.0
+	#start_game()
 
 
 #func _process(_delta):
@@ -108,5 +128,39 @@ func _on_pause_layer_restart() -> void:
 
 
 func more_difficult() -> void:
-	more_difficult_audio.pitch_scale = randf_range(0.85, 1.15)
-	more_difficult_audio.play()
+	if globalscript.point != 0:
+		more_difficult_audio.pitch_scale = randf_range(0.85, 1.15)
+		more_difficult_audio.play()
+	
+	await more_difficult_audio.finished
+	more_difficult_finished.emit()
+
+
+func start_countdown_timer() -> void:
+	print("3")
+	countdown_1.play()
+	countdown_timer.start()
+	await countdown_timer.timeout
+	
+	print("2")
+	countdown_1.play()
+	countdown_timer.start()
+	await  countdown_timer.timeout
+	
+	print("1")
+	countdown_1.play()
+	countdown_timer.start()
+	await  countdown_timer.timeout
+	
+	print("0")
+	countdown_2.play()
+	start_game()
+
+
+func start_game() -> void:
+	timer_finished.emit()
+	globalscript.timer_enabled = true
+	globalscript.is_game_active = true
+	
+	change_delivery_area_pos()
+	change_malus()

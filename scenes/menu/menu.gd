@@ -30,7 +30,7 @@ func _on_PlayButton_pressed() -> void:
 			"val": 15
 		},
 	}
-	globalscript.is_game_active = true
+	#globalscript.is_game_active = true
 	GGT.change_scene("res://scenes/gameplay/gameplay.tscn", params)
 
 
@@ -45,6 +45,9 @@ func _on_ExitButton_pressed() -> void:
 		await get_tree().create_timer(0.3).timeout
 	get_tree().quit()
 
+
+func _process(delta: float) -> void:
+	pass
 
 #func _process(delta: float) -> void:
 	#camera.global_position.y = player.global_position.y + n

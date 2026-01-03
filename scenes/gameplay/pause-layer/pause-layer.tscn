@@ -267,6 +267,30 @@ layout_mode = 2
 text = "You delivered"
 horizontal_alignment = 1
 
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -531.5
+offset_top = -192.0
+offset_right = -412.5
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="more_difficult_label" type="Label" parent="MarginContainer/Control/MarginContainer2"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_5vvpd")
+theme_override_font_sizes/font_size = 21
+text = "MORE DIFFICULT"
+horizontal_alignment = 2
+
 [node name="Control2" type="Control" parent="MarginContainer"]
 process_mode = 3
 layout_mode = 2

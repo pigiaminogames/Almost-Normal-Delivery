@@ -20,12 +20,10 @@ extends Node
 
 @onready var is_game_active: bool
 
+@onready var gameplay: Node = $"."
+@onready var timer_enabled := false
+
 signal more_difficult_sound
-
-
-#func _ready() -> void:
-	#delivery_timer = 10.0
-
 
 func update_malus(new_point: int):
 	if is_game_active:
@@ -34,7 +32,7 @@ func update_malus(new_point: int):
 		
 		print(counter)
 		
-		if counter >= 10:
+		if counter >= 10 and point > 0:
 			counter = 0
 			more_difficult_sound.emit()
 			
@@ -83,6 +81,6 @@ func update_inverted_arrows() -> void:
 
 
 func _process(delta: float) -> void:
-	if is_game_active:
+	if is_game_active and timer_enabled:
 		if delivery_timer > 0.0:
 			delivery_timer -= delta
