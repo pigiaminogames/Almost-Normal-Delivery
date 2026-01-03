@@ -19,14 +19,12 @@ extends CanvasLayer
 @onready var points_label: Label = $MarginContainer/Control/PanelContainer/points_label
 @onready var timer_label: Label = $MarginContainer/Control/PanelContainer3/timer_label
 @onready var package_delivered_label: Label = $MarginContainer/Control/MarginContainer/VBoxContainer/package_delivered
-#@onready var actual_malus_label: Label = %actual_malus_label
+@onready var more_difficult_label: Label = $MarginContainer/Control/MarginContainer2/more_difficult_label
 
 @onready var malus_1: TextureRect = $MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer/TextureRect
 @onready var malus_2: TextureRect = $MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/TextureRect
 @onready var malus_3: TextureRect = $MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer3/TextureRect
 @onready var malus_4: TextureRect = $MarginContainer/Control/PanelContainer2/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer4/TextureRect
-
-
 
 @onready var nodes_grp1 = [arrow_container, points_panel_container, malus_panel_container, timer_panel_conteiner] # should be visible during gamemplay and hidden during pause
 @onready var nodes_grp2 = [pause_options, color_rect] # should be visible only in pause menu
@@ -36,16 +34,24 @@ extends CanvasLayer
 signal restart
 
 var is_game_over := false
+var arrow_show := false
 
+@onready var more_difficult_flickering := false
+@onready var flickering_time := 0.00
+@onready var flickering_speed := 0.01
 
 func _ready():
+	arrow_show = false
+	arrow_stackedsprite.hide()
+	
 	pause_hide()
 	
 	step_malus_atlas(malus_1)
 	step_malus_atlas(malus_2)
 	step_malus_atlas(malus_3)
 	step_malus_atlas(malus_4)
-
+	
+	globalscript.more_difficult_sound.connect(more_difficult)
 
 func pause_show():
 	for n in nodes_grp1:
@@ -54,6 +60,10 @@ func pause_show():
 		n.show()
 	for n in nodes_grp3:
 		n.hide()
+	
+	more_difficult_label.hide()
+	
+	update_arrow_visibility()
 
 
 func pause_hide():
@@ -68,6 +78,10 @@ func pause_hide():
 	for n in nodes_grp3:
 		if n:
 			n.hide()
+	
+	more_difficult_label.hide()
+	
+	update_arrow_visibility()
 
 
 func _unhandled_input(event):
@@ -101,6 +115,8 @@ func game_over() -> void:
 	for n in nodes_grp3:
 		n.show()
 	
+	more_difficult_label.hide()
+	
 	await get_tree().process_frame
 	restart_button.grab_focus()
 	
@@ -133,9 +149,11 @@ func step_malus_atlas(texture: TextureRect) -> void:
 		texture.texture = atlas
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	points_label.text = str(globalscript.point)
 	timer_label.text = "Time: " + str(int(globalscript.delivery_timer))
+	
+	update_arrow_visibility()
 	
 	reset_malus_icon()
 	
@@ -156,6 +174,19 @@ func _process(_delta: float) -> void:
 	if globalscript.delivery_timer <= 0.0 and !is_game_over:
 		is_game_over = true
 		game_over()
+	
+	var should_be_visible := false
+	
+	if more_difficult_flickering == true:
+		flickering_time += delta
+		
+		if flickering_time > flickering_speed:
+			flickering_time = 0.0
+		should_be_visible = (int(Time.get_ticks_msec() / 100)) % 2 == 0
+	else:
+		should_be_visible = false
+	
+	more_difficult_label.visible = should_be_visible
 
 
 func reset_malus_icon() -> void:
@@ -176,3 +207,24 @@ func _on_main_menu_2_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	restart.emit()
+
+
+func _on_gameplay_timer_finished() -> void:
+	arrow_show = true
+	update_arrow_visibility()
+
+
+func update_arrow_visibility() -> void:
+	#print(arrow_show)
+	if arrow_show == true and get_tree().paused == false:
+		arrow_stackedsprite.show()
+	else:
+		arrow_stackedsprite.hide()
+
+
+func more_difficult() -> void:
+	more_difficult_flickering = true
+
+
+func _on_gameplay_more_difficult_finished() -> void:
+	more_difficult_flickering = false

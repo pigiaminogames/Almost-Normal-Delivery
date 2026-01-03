@@ -35,6 +35,8 @@ var current_skid_l: Line2D
 var current_skid_r: Line2D
 var is_turning := false
 
+@onready var coutdown_timer := false
+
 
 func _ready() -> void:
 	global_rotation = 1.57
@@ -62,9 +64,10 @@ func _physics_process(delta: float) -> void:
 		wait_inverted_arrow_timer = 0.0
 		inverted_arrow_timer = 0.0
 	
-	handle_input(delta)
-	apply_friction(delta)
-	move_car(delta)
+	if coutdown_timer:
+		handle_input(delta)
+		apply_friction(delta)
+		move_car(delta)
 	
 	move_and_slide()
 	
@@ -242,3 +245,7 @@ func start_wait_inverted_timer() -> void:
 	change_direction_sound.play()
 	inverted_arrow_timer = 0.0
 	wait_inverted_arrow_timer = randf_range(globalscript.min_sec_inverted_arrow_timer, globalscript.max_sec_inverted_arrow_timer)
+
+
+func _on_gameplay_timer_finished() -> void:
+	coutdown_timer = true
